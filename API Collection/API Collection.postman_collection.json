@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "fc18ecdc-a7d1-4865-b309-52c873493f0f",
+		"name": "API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ORDER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n    auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/commits', {\r\n    owner: 'meann08rainem',\r\n    repo: 'samplerepo'\r\n})",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"meann08rainem",
+						"samplerepo",
+						"commits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a commit comment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/comments/2ff37af', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  comment_id: 'COMMENT_ID'\r\n})",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits/2ff37af",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"meann08rainem",
+						"samplerepo",
+						"commits",
+						"2ff37af"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List branches for HEAD commit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/commits/2ff37af51956006ad30efebfe64bf0a7483366d9/branches-where-head', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  commit_sha: 'COMMIT_SHA'\r\n})",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits/2ff37af51956006ad30efebfe64bf0a7483366d9/branches-where-head",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"meann08rainem",
+						"samplerepo",
+						"commits",
+						"2ff37af51956006ad30efebfe64bf0a7483366d9",
+						"branches-where-head"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add a foo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Transformers\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/spring-boot-rest/auth/foos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"spring-boot-rest",
+						"auth",
+						"foos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
