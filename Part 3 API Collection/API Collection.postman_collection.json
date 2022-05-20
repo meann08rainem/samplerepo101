@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "fc18ecdc-a7d1-4865-b309-52c873493f0f",
-		"name": "API Collection",
+		"_postman_id": "266600b6-dcc3-4b33-bdc3-918b66a63684",
+		"name": "API COLLECTION",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GET ORDER",
+			"name": "List commit comments for a repository",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -15,7 +15,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n    auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/commits', {\r\n    owner: 'meann08rainem',\r\n    repo: 'samplerepo'\r\n})",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo101/comments', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO'\r\n})",
 					"options": {
 						"raw": {
 							"language": "javascript"
@@ -23,7 +23,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits",
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/comments",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -33,8 +33,8 @@
 					"path": [
 						"repos",
 						"meann08rainem",
-						"samplerepo",
-						"commits"
+						"samplerepo101",
+						"comments"
 					]
 				}
 			},
@@ -47,10 +47,17 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Settings",
+						"value": "application/vnd.github.v3+json",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/comments/2ff37af', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  comment_id: 'COMMENT_ID'\r\n})",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo101/comments/74070923', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  comment_id: 'COMMENT_ID'\r\n})",
 					"options": {
 						"raw": {
 							"language": "javascript"
@@ -58,7 +65,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits/2ff37af",
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/comments/74070923",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -68,16 +75,82 @@
 					"path": [
 						"repos",
 						"meann08rainem",
-						"samplerepo",
-						"commits",
-						"2ff37af"
+						"samplerepo101",
+						"comments",
+						"74070923"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "List branches for HEAD commit",
+			"name": "Update a commit comment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('PATCH /repos/meann08rainem/samplerepo101/comments/74070923', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  comment_id: 'COMMENT_ID',\r\n  body: 'Nice change'\r\n})",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/comments/43811609",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"meann08rainem",
+						"samplerepo101",
+						"comments",
+						"43811609"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a commit comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('DELETE /repos/meann08rainem/samplerepo101/comments/43811609', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  comment_id: 'COMMENT_ID'\r\n})",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/comments/43811609",
+					"protocol": "https",
+					"host": [
+						"api",
+						"github",
+						"com"
+					],
+					"path": [
+						"repos",
+						"meann08rainem",
+						"samplerepo101",
+						"comments",
+						"43811609"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List commit comments",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -86,7 +159,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/meann08rainem/samplerepo/commits/2ff37af51956006ad30efebfe64bf0a7483366d9/branches-where-head', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  commit_sha: 'COMMIT_SHA'\r\n})",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('GET /repos/{owner}/{repo}/commits/{commit_sha}/comments', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  commit_sha: 'COMMIT_SHA'\r\n})",
 					"options": {
 						"raw": {
 							"language": "javascript"
@@ -94,7 +167,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://api.github.com/repos/meann08rainem/samplerepo/commits/2ff37af51956006ad30efebfe64bf0a7483366d9/branches-where-head",
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/commits/b62f8e06eb6dd2d08f7520b5c6f1d362ba126007/comments",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -104,40 +177,44 @@
 					"path": [
 						"repos",
 						"meann08rainem",
-						"samplerepo",
+						"samplerepo101",
 						"commits",
-						"2ff37af51956006ad30efebfe64bf0a7483366d9",
-						"branches-where-head"
+						"b62f8e06eb6dd2d08f7520b5c6f1d362ba126007",
+						"comments"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "add a foo",
+			"name": "Create a commit comment",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Transformers\"\r\n}",
+					"raw": "// Octokit.js\r\n// https://github.com/octokit/core.js#readme\r\nconst octokit = new Octokit({\r\n  auth: 'personal-access-token123'\r\n})\r\n\r\nawait octokit.request('POST /repos/{owner}/{repo}/commits/{commit_sha}/comments', {\r\n  owner: 'OWNER',\r\n  repo: 'REPO',\r\n  commit_sha: 'COMMIT_SHA',\r\n  body: 'Great stuff',\r\n  path: 'file1.txt',\r\n  position: 4,\r\n  line: 1\r\n})",
 					"options": {
 						"raw": {
-							"language": "json"
+							"language": "javascript"
 						}
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/spring-boot-rest/auth/foos",
-					"protocol": "http",
+					"raw": "https://api.github.com/repos/meann08rainem/samplerepo101/commits/b62f8e06eb6dd2d08f7520b5c6f1d362ba126007/comments",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"api",
+						"github",
+						"com"
 					],
-					"port": "8082",
 					"path": [
-						"spring-boot-rest",
-						"auth",
-						"foos"
+						"repos",
+						"meann08rainem",
+						"samplerepo101",
+						"commits",
+						"b62f8e06eb6dd2d08f7520b5c6f1d362ba126007",
+						"comments"
 					]
 				}
 			},
